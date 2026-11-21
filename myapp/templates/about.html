@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}Our story — Petopia{% endblock %}
+{% block description %}Get to know Petopia: a little pet-loving corner devoted to thoughtful everyday care and the joy of life with animals.{% endblock %}
+
+{% block content %}
+<section class="page-hero about-hero">
+    <span class="eyebrow"><span class="eyebrow-dot"></span> Hello, fellow animal person</span>
+    <h1>We think pets<br>make <span class="hand-underline">everything</span><br>a little better.</h1>
+    <p>And they deserve care that feels just as lovely as the way they make us feel.</p>
+    <span class="about-sun" aria-hidden="true">☼</span>
+</section>
+
+<section class="about-intro">
+    <div class="about-photo">
+        <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=1100&q=85" alt="A curious dog looking up with a joyful expression">
+        <span class="about-photo-tag">Professional good-mood maker</span>
+    </div>
+    <div class="about-copy">
+        <span class="eyebrow">The heart behind Petopia</span>
+        <h2>More than products.<br>A whole lot of <span class="serif-italic">love.</span></h2>
+        <p>Petopia began with a simple thought: taking care of a pet should feel less like a chore and more like another way to say “I love you.” The little rituals—the gentle grooming, the daily walks, the play breaks—are where so much of the magic happens.</p>
+        <p>So we’re creating a cheerful place to discover useful, thoughtful finds for pets and the people who adore them. No fuss, no judgment—just a little more joy in the everyday.</p>
+        <a class="text-link" href="{% url 'petshop' %}">Find a new favorite <span aria-hidden="true">→</span></a>
+    </div>
+</section>
+
+<section class="values-section">
+    <div class="section-heading centered-heading">
+        <div><span class="eyebrow">Our little guiding stars</span><h2>Good care comes<br>from the <span class="serif-italic">heart.</span></h2></div>
+    </div>
+    <div class="values-grid">
+        <article class="value-card"><span class="value-icon value-yellow" aria-hidden="true">♡</span><h3>Love the little things</h3><p>Thoughtful everyday essentials can turn an ordinary brush, walk, or cuddle into a moment you both look forward to.</p></article>
+        <article class="value-card"><span class="value-icon value-pink" aria-hidden="true">✿</span><h3>Care for every character</h3><p>Every pet is their own delightful self. We celebrate their quirks and encourage care that suits their needs.</p></article>
+        <article class="value-card"><span class="value-icon value-green" aria-hidden="true">☼</span><h3>Keep it joyful</h3><p>Pet care can be practical and playful. We’re here for useful finds, happy routines, and plenty of tail wags.</p></article>
+    </div>
+</section>
+
+<section class="about-note">
+    <span class="note-quote-mark" aria-hidden="true">“</span>
+    <blockquote>They may only be part of our lives, but to them, we are their whole world.</blockquote>
+    <span class="note-signoff">A little love note from Petopia <span aria-hidden="true">♡</span></span>
+</section>
+
+<section class="bottom-cta about-cta">
+    <span class="eyebrow">Made for you and your favorite floof</span>
+    <h2>Let’s make their<br>day <span class="serif-italic">brighter.</span></h2>
+    <a class="button button-dark" href="{% url 'petshop' %}">Explore the shop <span aria-hidden="true">↗</span></a>
+</section>
+{% endblock %}

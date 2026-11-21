@@ -1,0 +1,58 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#fbf8f2">
+    <title>{% block title %}Petopia — little joys for furry friends{% endblock %}</title>
+    <meta name="description" content="{% block description %}Thoughtful pet-care essentials for happier, healthier days together.{% endblock %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'myapp/css/style.css' %}">
+</head>
+<body>
+    <div class="announcement">A little love goes a long way <span aria-hidden="true">✦</span> Thoughtful finds for pets and their people</div>
+    <header class="site-header">
+        <a class="brand" href="{% url 'home' %}" aria-label="Petopia home">
+            <span class="brand-mark" aria-hidden="true">✿</span>
+            <span>petopia<span class="brand-period">.</span><small>GOOD DAYS, GOOD DOGS (AND CATS)</small></span>
+        </a>
+        <nav class="main-nav" aria-label="Main navigation">
+            <a href="{% url 'home' %}" {% if request.resolver_match.url_name == 'home' %}aria-current="page"{% endif %}>Home</a>
+            <a href="{% url 'petshop' %}" {% if request.resolver_match.url_name == 'petshop' %}aria-current="page"{% endif %}>The shop</a>
+            <a href="{% url 'about' %}" {% if request.resolver_match.url_name == 'about' %}aria-current="page"{% endif %}>Our story</a>
+        </nav>
+        <a class="header-cta" href="{% url 'petshop' %}">Find their favorites <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-main">
+            <div>
+                <a class="brand footer-brand" href="{% url 'home' %}">
+                    <span class="brand-mark" aria-hidden="true">✿</span>
+                    <span>petopia<span class="brand-period">.</span><small>FOR THE LOVE OF PETS</small></span>
+                </a>
+                <p>Every tail wag, whisker twitch, and muddy paw deserves a little extra love.</p>
+            </div>
+            <div class="footer-links">
+                <span class="footer-label">Wander around</span>
+                <a href="{% url 'petshop' %}">Shop pet-care picks</a>
+                <a href="{% url 'about' %}">Get to know us</a>
+                <a href="{% url 'home' %}">Back to home</a>
+            </div>
+            <div class="footer-note">
+                <span class="footer-label">A little reminder</span>
+                <p>Good care starts with noticing the small things. You know your pet best.</p>
+                <span class="paw-doodle" aria-hidden="true">🐾</span>
+            </div>
+        </div>
+        <div class="footer-bottom"><span>Made with lots of love (and a few treats).</span><span>© 2025 Petopia</span></div>
+    </footer>
+</body>
+</html>

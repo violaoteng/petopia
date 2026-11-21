@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block title %}The pet shop — Petopia{% endblock %}
+{% block description %}Explore a cheerful collection of grooming, everyday-care, and playtime ideas for the pets you love.{% endblock %}
+
+{% block content %}
+<section class="shop-hero">
+    <span class="eyebrow"><span class="eyebrow-dot"></span> Your pet's happy place</span>
+    <h1>Good things for<br><span class="hand-underline">good pets.</span></h1>
+    <p>Useful little finds for the everyday stuff—plus a few things that make tails wag.</p>
+    <div class="shop-jump-links" aria-label="Shop by category">
+        <a href="#grooming">Groom &amp; glow <span aria-hidden="true">↓</span></a>
+        <a href="#care">Everyday care <span aria-hidden="true">↓</span></a>
+        <a href="#play">Play &amp; unwind <span aria-hidden="true">↓</span></a>
+    </div>
+    <span class="shop-hero-doodle" aria-hidden="true">🐾</span>
+</section>
+
+<section class="shop-section" id="grooming">
+    <div class="shop-section-heading">
+        <div><span class="eyebrow">For the fresh-and-fluffy days</span><h2>Groom &amp; <span class="serif-italic">glow</span></h2></div>
+        <span class="section-emoji" aria-hidden="true">🫧</span>
+    </div>
+    <div class="product-grid">
+        <article class="product-card">
+            <div class="product-art product-art-peach"><span class="product-emoji" aria-hidden="true">🪮</span><span class="product-tag">GENTLE GROOMING</span></div>
+            <div class="product-info"><h3>The easy-breezy brush</h3><p>A soft grooming brush for unrushed coat-care moments and extra bonding time.</p><a href="{% url 'about' %}" class="product-link">Why thoughtful care matters <span aria-hidden="true">→</span></a></div>
+        </article>
+        <article class="product-card">
+            <div class="product-art product-art-blue"><span class="product-emoji" aria-hidden="true">🧴</span><span class="product-tag">BATH-TIME BUDDY</span></div>
+            <div class="product-info"><h3>Calm-and-clean shampoo</h3><p>A gentle wash-day pick for turning splashy clean-ups into a soothing routine.</p><a href="{% url 'about' %}" class="product-link">A little about our approach <span aria-hidden="true">→</span></a></div>
+        </article>
+        <article class="product-card">
+            <div class="product-art product-art-lilac"><span class="product-emoji" aria-hidden="true">🧻</span><span class="product-tag">POST-WALK HELPER</span></div>
+            <div class="product-info"><h3>Ready-for-anything wipes</h3><p>Handy clean-up cloths for muddy paws, curious noses, and little adventures.</p><a href="{% url 'about' %}" class="product-link">Little routines, lots of love <span aria-hidden="true">→</span></a></div>
+        </article>
+    </div>
+</section>
+
+<section class="shop-section shop-section-tint" id="care">
+    <div class="shop-section-heading">
+        <div><span class="eyebrow">For all the in-between moments</span><h2>Everyday <span class="serif-italic">care</span></h2></div>
+        <span class="section-emoji" aria-hidden="true">🌼</span>
+    </div>
+    <div class="product-grid">
+        <article class="product-card">
+            <div class="product-art product-art-green"><span class="product-emoji" aria-hidden="true">🥣</span><span class="product-tag">MEALTIME MUST-HAVE</span></div>
+            <div class="product-info"><h3>The happy-day bowl</h3><p>A sturdy everyday bowl to make breakfast, dinner, and snack o’clock feel special.</p><a href="{% url 'about' %}" class="product-link">Care that feels like a cuddle <span aria-hidden="true">→</span></a></div>
+        </article>
+        <article class="product-card">
+            <div class="product-art product-art-yellow"><span class="product-emoji" aria-hidden="true">🧺</span><span class="product-tag">COZY CORNER</span></div>
+            <div class="product-info"><h3>The curl-up blanket</h3><p>A snuggly soft spot for naps, quiet-time wiggles, and keeping favorite places cozy.</p><a href="{% url 'about' %}" class="product-link">Make room for the little things <span aria-hidden="true">→</span></a></div>
+        </article>
+        <article class="product-card">
+            <div class="product-art product-art-pink"><span class="product-emoji" aria-hidden="true">🦮</span><span class="product-tag">WALKIES TIME</span></div>
+            <div class="product-info"><h3>The let's-go lead</h3><p>A dependable walk-time essential for sniffari adventures around the neighborhood.</p><a href="{% url 'about' %}" class="product-link">Meet the people behind Petopia <span aria-hidden="true">→</span></a></div>
+        </article>
+    </div>
+</section>
+
+<section class="shop-section" id="play">
+    <div class="shop-section-heading">
+        <div><span class="eyebrow">For the wiggles and the wind-down</span><h2>Play &amp; <span class="serif-italic">unwind</span></h2></div>
+        <span class="section-emoji" aria-hidden="true">🎾</span>
+    </div>
+    <div class="product-grid">
+        <article class="product-card">
+            <div class="product-art product-art-yellow"><span class="product-emoji" aria-hidden="true">🧩</span><span class="product-tag">BUSY PAWS</span></div>
+            <div class="product-info"><h3>The curious-pup puzzle</h3><p>A nose-work game to encourage sniffing, exploring, and a little brain-teasing fun.</p><a href="{% url 'about' %}" class="product-link">More about happy pet days <span aria-hidden="true">→</span></a></div>
+        </article>
+        <article class="product-card">
+            <div class="product-art product-art-peach"><span class="product-emoji" aria-hidden="true">🎾</span><span class="product-tag">LET'S PLAY</span></div>
+            <div class="product-info"><h3>The one-more-throw ball</h3><p>A classic playtime pal for fetch fans, zoomie enthusiasts, and their favorite humans.</p><a href="{% url 'home' %}" class="product-link">Find more little joys <span aria-hidden="true">→</span></a></div>
+        </article>
+        <article class="product-card">
+            <div class="product-art product-art-lilac"><span class="product-emoji" aria-hidden="true">🐭</span><span class="product-tag">CAT-NAP? NOT YET.</span></div>
+            <div class="product-info"><h3>The pounce-and-play mouse</h3><p>A feather-light plaything for curious cats with a little extra bounce in their paws.</p><a href="{% url 'about' %}" class="product-link">For every kind of character <span aria-hidden="true">→</span></a></div>
+        </article>
+    </div>
+</section>
+
+<section class="shop-note">
+    <span class="note-icon" aria-hidden="true">♡</span>
+    <div><h2>Every pet is wonderfully different.</h2><p>Choose products that suit your pet's age, size, coat, and needs. When in doubt, your veterinarian is your best guide.</p></div>
+    <a class="text-link" href="{% url 'about' %}">Our thoughtful approach <span aria-hidden="true">→</span></a>
+</section>
+{% endblock %}
