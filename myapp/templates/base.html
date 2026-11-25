@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'myapp/css/style.css' %}">
+    {% block extra_css %}{% endblock %}
 </head>
 <body>
     <div class="announcement">A little love goes a long way <span aria-hidden="true">✦</span> Thoughtful finds for pets and their people</div>
@@ -23,11 +24,27 @@
             <a href="{% url 'home' %}" {% if request.resolver_match.url_name == 'home' %}aria-current="page"{% endif %}>Home</a>
             <a href="{% url 'petshop' %}" {% if request.resolver_match.url_name == 'petshop' %}aria-current="page"{% endif %}>The shop</a>
             <a href="{% url 'about' %}" {% if request.resolver_match.url_name == 'about' %}aria-current="page"{% endif %}>Our story</a>
+            {% if request.user.is_authenticated %}
+                <a href="{% url 'users:profile' %}" {% if request.resolver_match.url_name == 'profile' %}aria-current="page"{% endif %}>Profile</a>
+                <form method="post" action="{% url 'users:logout' %}" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="text-link" style="background: none; border: 0; cursor: pointer; font: inherit;">Log out</button>
+                </form>
+            {% else %}
+                <a href="{% url 'users:get_started' %}" {% if request.resolver_match.url_name == 'get_started' %}aria-current="page"{% endif %}>Get started</a>
+            {% endif %}
         </nav>
         <a class="header-cta" href="{% url 'petshop' %}">Find their favorites <span aria-hidden="true">↗</span></a>
     </header>
 
     <main>
+        {% if messages %}
+            <div class="messages" role="status" style="max-width: 760px; margin: 1rem auto; padding: 0 1rem;">
+                {% for message in messages %}
+                    <p class="message message-{{ message.tags }}">{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
         {% block content %}{% endblock %}
     </main>
 
@@ -44,6 +61,11 @@
                 <span class="footer-label">Wander around</span>
                 <a href="{% url 'petshop' %}">Shop pet-care picks</a>
                 <a href="{% url 'about' %}">Get to know us</a>
+                {% if request.user.is_authenticated %}
+                    <a href="{% url 'users:profile' %}">My account &amp; orders</a>
+                {% else %}
+                    <a href="{% url 'users:get_started' %}">Get started (Sign in / Sign up)</a>
+                {% endif %}
                 <a href="{% url 'home' %}">Back to home</a>
             </div>
             <div class="footer-note">
@@ -54,5 +76,6 @@
         </div>
         <div class="footer-bottom"><span>Made with lots of love (and a few treats).</span><span>© 2025 Petopia</span></div>
     </footer>
+    {% block extra_js %}{% endblock %}
 </body>
 </html>
