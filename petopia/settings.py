@@ -87,9 +87,20 @@ WSGI_APPLICATION = 'petopia.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.1/ref/settings/#databases
 
-DB_ENGINE = os.getenv('DB_ENGINE', 'mysql').lower()
+DB_ENGINE = os.getenv('DB_ENGINE', 'postgres').lower()
 
-if DB_ENGINE == 'mysql':
+if DB_ENGINE in ('postgres', 'postgresql'):
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': os.getenv('DB_NAME', 'petopia_db'),
+            'USER': os.getenv('DB_USER', 'postgres'),
+            'PASSWORD': os.getenv('DB_PASSWORD', ''),
+            'HOST': os.getenv('DB_HOST', '127.0.0.1'),
+            'PORT': os.getenv('DB_PORT', '5432'),
+        }
+    }
+elif DB_ENGINE == 'mysql':
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
@@ -109,7 +120,7 @@ elif DB_ENGINE == 'sqlite':
         }
     }
 else:
-    raise ValueError("DB_ENGINE must be either 'sqlite' or 'mysql'.")
+    raise ValueError("DB_ENGINE must be 'postgres', 'mysql', or 'sqlite'.")
 
 MPESA_ENVIRONMENT = os.getenv('MPESA_ENVIRONMENT', 'sandbox').lower()
 MPESA_CONSUMER_KEY = os.getenv('MPESA_CONSUMER_KEY', '')
